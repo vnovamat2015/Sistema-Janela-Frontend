@@ -1,0 +1,44 @@
+.body{
+    background-color:#00ffb3
+}
+.h1{
+    color: red; 
+    margin-top:10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: sans-serif;
+}
+.h2{
+    color: black;
+    margin-top: 0px;
+    font-family: sans-serif;
+}
+.p1{
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    font-size: 20px;
+    margin-top: 15px;
+    text-align:justify;
+}
+.index-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    padding:50px       
+}
+.banner-index{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 10px;
+}
+.index-form-wrapper label{
+    color: black;
+    text-align: center;
+    font-size: 40px;
+}
+.img-chuva{ margin-top: 10px;width:400px;}

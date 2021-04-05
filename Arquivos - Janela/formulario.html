@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/formulario.css">
+    <link rel="stylesheet" href="Plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Plugins/fontawesome/css/all.min.css">
+    <title>Api Servidor</title> 
+</head>
+<body class="body">
+
+  <header class="header">
+    <h1 class="h1"><strong> Formulário  do Início e Término da Chuva</strong></h1>
+     <form>
+        <div class="form-row">
+           <div class="col">
+             <label for="nome"> <strong>Bairro</strong> </label><br/>
+                <select id='bairro' >
+                  <option>----</option>
+               </select> 
+          </div>
+          <div class="col-sm-2">
+              <p ><strong>Coordenadas</strong></p>
+              <p id='coordenadas'></p>
+          </div>
+          <div class="col">
+              <label for="dates"><strong>Data </strong></label><br/>
+              <input  onblur="ConferirDataFutura(dates.value)"  type="date" name="dates" id="dates"><br/>
+          </div>
+          <div class="col-sm-2">
+              <label for="start"><strong>Horas:Início</strong></label><br/>
+              <input type="time" name="start" id="start" size="10" maxlength=" 80" required><br/>
+          </div>
+          <div class="col-sm-2">
+              <label for="end"><strong>Horas:Término</strong></label><br/>
+              <input type="time" name="end" id="end" size="10" maxlength=" 80" required><br/>
+          </div>
+          <div class="col">
+               <input onclick="inserir();" type="button" value="Inserir" id="submit" name="submit" size="50"> 
+          </div>
+        </div>
+      </form>
+</header>
+
+
+   <main>
+          
+      <janela class="janela1">
+        <div class="form-row">
+            <div id="bairro1" class="col-sm-2">
+              
+            </div>
+            
+            <div id="bairro2" class="col-sm-2">
+                  
+            </div>
+            <div id="bairro3" class="col-sm-2">
+                  
+            </div>
+
+            <div id="bairro4" class="col-sm-2">
+              
+            </div>
+
+            <div id="bairro5" class="col-sm-2">
+              
+            </div>
+          <div>
+          </div>    
+        </janela>
+        <div class= "col-sm-2">
+            <div class="tutorial">
+                <p> <strong>Tutorial </strong> </p>
+            </div>    
+        
+            <div class="lista">
+                  <ol>
+                      <li> Selecione Bairros(até 5 )</li>
+                      <li> Selecione  Bairro</li>
+                      <li> Verifique as Coordenadas</li>
+                      <li> Selecione a Data</li>
+                      <li> Selecione horas do inicio da Chuva</li>
+                      <li> Selecione horas do término da Chuva</li>
+                      <li> Click em Inserir</li>
+                    <li> Click em Gerar Relatório</li>
+                  </lo>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>   
+    <footer class="container-footer">
+      <div class="child-center invisivel">
+        <input onclick="window.location.href='tabela.html';" type="submit" value="Gerar Relatório" id="submit" name="submit" size="100"> 
+      </div>
+    </footer>   
+    <script src="Frontend/carrega-bairros.js"></script>
+    <script src="Frontend/dados-form.js"></script> 
+  </body>
+</html>
+
