@@ -114,8 +114,8 @@ function inserir( ){
     obj.dates = dates.value;
     obj.horaInicio = horaInicio.value;
     obj.horaFim = horaFim.value;
-    let card = obj
-
+    
+    
 
 
 
@@ -147,6 +147,15 @@ function inserir( ){
     
 console.log(lugarParaAdicionarOBairro)
 }
+ function enviardados(){
+        fetch('http://localhost:4000/relatorio',{ 
+            method:"POST", 
+            body: JSON.stringify(list), 
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        } )
+    }
 
 // Inserção dos dados
 function editar(bairro, coordenadas, dates, horaInicio, horaFim){

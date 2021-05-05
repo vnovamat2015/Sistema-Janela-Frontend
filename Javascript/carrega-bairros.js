@@ -2,9 +2,11 @@
 // alert('Leia o Tutorial')
 let bairros = [];
 console.log('rodou na abertura da tela.');
-fetch('http://localhost:4000/bairros')
+fetch('http://localhost:4000/bairrosX')
 .then(response => response.json())
 .then(bairros_servidor => {
+    console.log(bairros_servidor)
+
     bairros = bairros_servidor;
     const cmbBairros = document.getElementById('bairro');
     bairros.forEach(bairro => {
@@ -13,3 +15,9 @@ fetch('http://localhost:4000/bairros')
         cmbBairros.appendChild(itemBairro);
     });
 });
+const novobairro = {    'bairro': "OLARIA",
+'coordenadas': "51° 12' 36''S 29° 56' 44''W"
+}
+
+
+
