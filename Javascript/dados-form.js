@@ -14,32 +14,7 @@ const dates = document.getElementById("dates");
                 coordenadasBairro.textContent =  bairro['coordenadas']; 
             }
         });
-        /*
-        switch (bairroEscolhido.value){
-            case 'CENTRO':
-                coordenadasBairro.textContent =  `29° 55' 04''S  51° 11' 01''W`; break; 
-            case 'FATIMA': 
-                coordenadasBairro.textContent = `45° 25' 04''S 54° 16' 11''W` ; break;
-            case 'GUAJUVIRAS':
-                coordenadasBairro.textContent = `48° 35' 04''S 56° 10' 21''W`; break; 
-            case 'NITEROI':
-                    coordenadasBairro.textContent = `38° 15' 04''S 23° 11' 01''W`; break;    
-            case 'MATHIAS VELHO':
-                coordenadasBairro.textContent = `27° 30' 04''S 14° 15' 10''W`; break;        
-            case 'MATO GRANDE':
-                 coordenadasBairro.textContent = `W 51° 12' 48''S 29° 56' 24''`; break;       
-            case 'NOSSA Sra. das GRAÇAS':
-                 coordenadasBairro.textContent = `W 51° 08' 42''S 29° 56' 28''W`; break;   
-            case 'IGARA':
-                 coordenadasBairro.textContent = `W 51° 09' 34''S 29° 53' 52''W`; break;  
-            case 'RIO BRANCO':
-                 coordenadasBairro.textContent = `W 51° 11' 6''S 29° 57' 54''W`; break;  
-            case 'HARMONIA':
-                 coordenadasBairro.textContent = `W 51° 12' 36''S 29° 56' 44''W`; break;  
-            default:
-                coordenadasBairro.textContent = 'G  M  S'; break;
-        }
-*/
+       
     });
             var lugarParaAdicionarOBairro = null;
 function ConferirDataFutura(datadigitada) {
@@ -114,11 +89,8 @@ function inserir( ){
     obj.dates = dates.value;
     obj.horaInicio = horaInicio.value;
     obj.horaFim = horaFim.value;
-    
-    
 
-
-
+    // Icard que interge Backend na Função  no app.get('todosBairros',(req,res))
     list.push(obj)
     obj.idCard = "bairro1"
     obj.idCard = "bairro2"
@@ -147,6 +119,7 @@ function inserir( ){
     
 console.log(lugarParaAdicionarOBairro)
 }
+    //Função envia os dados do Front para Back atráves do metodo POST
  function enviardados(){
         fetch('http://localhost:4000/relatorio',{ 
             method:"POST", 
