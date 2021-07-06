@@ -1,13 +1,12 @@
-let coordenadasBairro = document.querySelector('#coordenadas')
-let bairroEscolhido = document.querySelector('#bairro');
+let coordenadasBairro = document.querySelector('#coordenadas');
+let bairroEscolhido = document.querySelector('#bairro')
+
 let list = []
 const bairro = document.getElementById('bairro');
 const horaInicio = document.getElementById("start");
 const horaFim = document.getElementById("end");
 const dates = document.getElementById("dates");
-
-
-            
+        
     bairroEscolhido.addEventListener('click', function(){
         bairros.forEach(bairro => {
             if(bairro['bairro'] == bairroEscolhido.value){
@@ -16,7 +15,7 @@ const dates = document.getElementById("dates");
         });
        
     });
-            var lugarParaAdicionarOBairro = null;
+let lugarParaAdicionarOBairro = null;
 function ConferirDataFutura(datadigitada) {
         let dataAtual = new Date()
         let diaAtual = dataAtual.getDate()
