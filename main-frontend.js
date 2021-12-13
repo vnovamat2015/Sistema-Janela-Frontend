@@ -1,3 +1,27 @@
+// alert('Leia o Tutorial')
+let bairros = [];
+///console.log('rodou na abertura da tela.');
+// Comando 'fetch' nativo do javasript: faz uma requisição na porta 4000
+// Nessa situação o 'fetch' faz um 'get' por padrão mas também pode fazer outros métodos HTTP
+// fetch é um comando que retorna uma promisse
+fetch('http://localhost:4000/bairros')
+ .then(response => response.json())
+ .then(bairros_servidor => {
+    console.log(bairros_servidor)
+
+    bairros = bairros_servidor;
+    const cmbBairros = document.getElementById('bairro');
+
+   /* Comando que interge html com javascript no Backend na const todosBairros. Exemplo const novobairro = {'bairro': "OLARIA",'coordenadas': "51° 12' 36''S 29° 56' 44''W" }*/
+    bairros.forEach(bairro => {
+        const itemBairro = document.createElement('option');// <option>IGARA</option>
+        itemBairro.textContent = bairro['bairro'];
+        cmbBairros.appendChild(itemBairro);
+    });
+});
+
+
+/////////////////////////////////////////////////////////////////////////
 let coordenadasBairro = document.querySelector('#coordenadas');
 let bairroEscolhido = document.querySelector('#bairro')
 
@@ -30,17 +54,14 @@ function ConferirDataFutura(datadigitada) {
         else return false  
 }
 
-function inserir( ){
+function consultar( ){
 
     //lógica para validar se o usuário preencheu todos os campos.
                if(bairro.value == '')
                     return;
                 else if(dates.value == '')
                     return;
-                else if(horaInicio.value == '')
-                    return;
-                 else if(horaFim.value == '')
-                  return;
+         
                  
                 else if(ConferirDataFutura(dates.value))
                       { 
@@ -62,7 +83,7 @@ function inserir( ){
     {
         lugarParaAdicionarOBairro = bairro1;
         const btnbairro1 = document.createElement('button')
-        btnbairro1.textContent = 'ALTERAR'
+        btnbairro1.textContent = 'ALTERA'
         bairro1.appendChild(btnbairro1) 
     }
     else if(bairro2.innerText == '')
@@ -86,9 +107,7 @@ function inserir( ){
     obj.bairro = bairro.value;
     obj.coordenadas = coordenadas.textContent;
     obj.dates = dates.value;
-    obj.horaInicio = horaInicio.value;
-    obj.horaFim = horaFim.value;
-
+ 
     // Icard que interge Backend na Função  no app.get('todosBairros',(req,res))
     list.push(obj)
     obj.idCard = "bairro1"
@@ -102,25 +121,25 @@ function inserir( ){
     lugarParaAdicionarOBairro.innerHTML = `Bairro: <strong>${bairro.value}</strong><br/>
                                            Coordenadas: <strong>${coordenadas.textContent}</strong><br/>
                                            Data: <strong>${dates.value} </strong><br/>
-                                           Inicio da Chuva: <strong>${horaInicio.value}</strong><br/>
-                                           Término da Chuva: <strong> ${horaFim.value} </strong><br/>
+                                           
                                            <button type="button" onclick="editar(
                                                '${obj.bairro}',
                                                '${obj.coordenadas.replaceAll("'","aspa maldita")}',
-                                               '${obj.dates}',
-                                               '${obj.horaInicio}',
-                                               '${obj.horaFim}')">    Alterar   </button>`;
+                                               '${obj.dates}')">    Trocar   </button>`;
 
 
-    //habilitar o botão "Gerar Relatório"
-    const botaoGerarRelatorio = document.querySelector(".container-footer .child-center")
-    botaoGerarRelatorio.classList.remove('invisivel');
-    
+
+
+    //habilitar o botão "Gerar Planilha"
+    const botaoGerarPlanilha = document.querySelector(".container-footer .child-center")
+    botaoGerarPlanilha.classList.remove('invisivel');
+
+
 console.log(lugarParaAdicionarOBairro)
 }
     //Função envia os dados do Front para Back atráves do metodo POST
  function enviardados(){
-        fetch('http://localhost:4000/relatorio',{ 
+        fetch('http://localhost:4000/listar',{ 
             method:"POST", 
             body: JSON.stringify(list), 
             headers: {
@@ -130,11 +149,9 @@ console.log(lugarParaAdicionarOBairro)
     }
 
 // Inserção dos dados
-function editar(bairro, coordenadas, dates, horaInicio, horaFim){
-    console.log(bairro, coordenadas.replaceAll("aspa maldita","'"), dates, horaInicio, horaFim);
+function editar(bairro, coordenadas, dates,){
+    console.log(bairro, coordenadas.replaceAll("aspa maldita","'"), dates);
     document.getElementById('bairro').value = bairro;
     document.getElementById('coordenadas').innerHTML = coordenadas.replaceAll("aspa maldita","'");
     document.getElementById('dates').value = dates;
-    document.getElementById('start').value = horaInicio;
-    document.getElementById('end').value = horaFim;
-}
+  }
