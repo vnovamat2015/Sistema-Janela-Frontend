@@ -16,6 +16,7 @@
         <div class="form-row">
            <div class="col">
              <label for="nome"> <strong>Bairro</strong> </label><br/>
+<!-- A tag select habilita a lista de bairros através da tg option que interge com arquivo carrega-bairros.js --> 
                 <select id='bairro' >
                   <option>----</option>
                </select> 
@@ -28,16 +29,9 @@
               <label for="dates"><strong>Data </strong></label><br/>
               <input  onblur="ConferirDataFutura(dates.value)"  type="date" name="dates" id="dates"><br/>
           </div>
-          <div class="col-sm-2">
-              <label for="start"><strong>Horas:Início</strong></label><br/>
-              <input type="time" name="start" id="start" size="10" maxlength=" 80" required><br/>
-          </div>
-          <div class="col-sm-2">
-              <label for="end"><strong>Horas:Término</strong></label><br/>
-              <input type="time" name="end" id="end" size="10" maxlength=" 80" required><br/>
-          </div>
+
           <div class="col">
-               <input onclick="inserir();" type="button" value="Inserir" id="submit" name="submit" size="50"> 
+               <input onclick="consultar();" type="button" value="Consultar" id="submit" name="submit" size="50"> 
           </div>
         </div>
       </form>
@@ -77,13 +71,10 @@
             <div class="lista">
                   <ol>
                       <li> Selecione Bairros(até 5 )</li>
-                      <li> Selecione  Bairro</li>
                       <li> Verifique as Coordenadas</li>
                       <li> Selecione a Data</li>
-                      <li> Selecione horas do inicio da Chuva</li>
-                      <li> Selecione horas do término da Chuva</li>
-                      <li> Click em Inserir</li>
-                    <li> Click em Gerar Relatório</li>
+                      <li> Click em Consultar</li>
+                    <li> Click em Gerar Planilha</li>
                   </lo>
             </div>
           </div>
@@ -92,11 +83,10 @@
     </main>   
     <footer class="container-footer">
       <div class="child-center ">
-        <input onclick=" enviardados();" type="submit" value="Listar Dados" id="submit" name="submit" size="100"> 
+        <input onclick=" enviardados();" type="submit" value="Gerar Planilha" id="submit" name="submit" size="100"> 
       </div>
     </footer>   
-    <script src="Javascript/carrega-bairros.js"></script>
-    <script src="JavaScript/dados-form.js"></script> 
+    <script src="main-frontend.js"></script> 
   </body>
 </html>
 
