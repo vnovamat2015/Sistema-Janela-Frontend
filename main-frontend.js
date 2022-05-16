@@ -4,7 +4,7 @@ let bairros = [];
 // Comando 'fetch' nativo do javasript: faz uma requisição na porta 4000
 // Nessa situação o 'fetch' faz um 'get' por padrão mas também pode fazer outros métodos HTTP
 // fetch é um comando que retorna uma promisse
-fetch('http://localhost:4000/bairros')
+fetch('http://localhost:3000/bairros')
  .then(response => response.json())
  .then(bairros_servidor => {
     console.log(bairros_servidor)
@@ -139,7 +139,7 @@ console.log(lugarParaAdicionarOBairro)
 }
     //Função envia os dados do Front para Back atráves do metodo POST
  function enviardados(){
-        fetch('http://localhost:4000/listar',{ 
+        fetch('http://localhost:3000/listar',{ 
             method:"POST", 
             body: JSON.stringify(list), 
             headers: {
